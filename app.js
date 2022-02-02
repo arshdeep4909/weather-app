@@ -16,7 +16,31 @@ let weather = {
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
     console.log(name, icon, description, temp, humidity, speed);
+
+    const weatherCity = document.querySelector(".city");
+    const weatherTemprature = document.querySelector(".temp");
+    const weatherDescription = document.querySelector(".description");
+    const weatherHumidity = document.querySelector(".humidity");
+    const weatherWind = document.querySelector(".wind");
+    const weatherIcon = document.querySelector(".icon");
+
+    weatherCity.textContent = `Weather in ${name}`;
+    weatherTemprature.textContent = `${temp}°C`;
+    weatherDescription.textContent = description;
+    weatherHumidity.textContent = `humidity: ${humidity}%`;
+    weatherWind.textContent = `Wind Speed: ${speed} Km/h`;
+    weatherIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png";
+  },
+  search: function () {
+    this.fetchWeather(document.querySelector(".search-bar").value);
   },
 };
 
-//
+document.querySelector(".search-btn").addEventListener("click", () => {
+  weather.search();
+});
+document.querySelector(".search-bar").addEventListener("keyup", (event) => {
+  if (event.key == "Enter") {
+    weather.search();
+  }
+});

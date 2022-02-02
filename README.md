@@ -22,3 +22,9 @@ the data has an attribute with title name,
 so we do not need to define it again in the value
 we just say name and pass data and it will get the value of
 name from the data object.
+
+// const city = document.querySelector(".city");
+// const temp = document.querySelector(".temp");
+// const description = document.querySelector(".description");
+// const humidity = document.querySelector(".humidity");
+// const wind = document.querySelector(".wind");
