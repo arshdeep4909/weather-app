@@ -98,4 +98,17 @@ section {
   margin-right: 2px;
 }
 
+.weather.loading {
+  display: none;
+  max-height: 20px;
+  position: relative;
+}
+.weather.loading::after {
+  visibility: inherit;
+  content: "Loading...";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  color: white;
+}
 /* http://source.unsplash.com/1600x900/?landscape */

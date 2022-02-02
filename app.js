@@ -15,7 +15,6 @@ let weather = {
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    console.log(name, icon, description, temp, humidity, speed);
 
     const weatherCity = document.querySelector(".city");
     const weatherTemprature = document.querySelector(".temp");
@@ -30,6 +29,8 @@ let weather = {
     weatherHumidity.textContent = `humidity: ${humidity}%`;
     weatherWind.textContent = `Wind Speed: ${speed} Km/h`;
     weatherIcon.src = "https://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".weather").classList.remove("loading");
+    document.body.style.backgroundImage = URL;
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
@@ -43,4 +44,7 @@ document.querySelector(".search-bar").addEventListener("keyup", (event) => {
   if (event.key == "Enter") {
     weather.search();
   }
+  document.querySelector("search-bar").value.style.reset();
 });
+
+weather.fetchWeather("Denver");
